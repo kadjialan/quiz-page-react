@@ -1,0 +1,8 @@
+.mainButton {
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #2196f3;
+    border: 1px solid #2196f3;
+    color: white;
+  }

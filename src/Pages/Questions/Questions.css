@@ -1,0 +1,16 @@
+.questions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 99vh;
+  background-color: #9e9e9e;
+  height: 99vh;
+  color: white;
+}
+
+.questions__numbers {
+ min-height: 500px;
+  width: 350px;
+  border: 2px solid black;
+}
