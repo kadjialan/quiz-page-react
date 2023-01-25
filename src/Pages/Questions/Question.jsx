@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../Components/Button/Button';
 import './Questions.css';
 
 function Question() {
+  const [questions, setQuestions] = useState([]);
+  const fetchPost = async () => {
+    const response = await fetch(
+      'https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean'
+    );
+    const data = await response.json();
+    setQuestions([data]);
+  };
+
+  useEffect(() => {
+    fetchPost();
+  }, []);
+
   return (
     <div className="questions">
       <h2>welcome to your quiz experience</h2>
@@ -16,6 +29,11 @@ function Question() {
           </Link>
         }
       />
+      <ul>
+        {questions.map((user) => (
+          <li>{user.question}</li>
+        ))}
+      </ul>
     </div>
   );
 }
