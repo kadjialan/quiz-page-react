@@ -27,13 +27,22 @@ function Question({ numb, path }) {
           <p>
             <b>Category:</b> {questions[numb - 1].category}
           </p>
-          <h3 key={questions.question}>{questions[numb - 1].question}</h3>
+          <h3 key={questions.question}>
+            {questions[numb - 1].question.replace(/[^a-zA-Z ]/g, '')}
+          </h3>
           <div className="questions__btn">
             <Button text="True" />
             <Button text="False" blue="red" />
           </div>
         </div>
-        <Button text={<Link to={path}>Next question</Link>} blue="black" />
+        <Button
+          text={
+            <Link to={path} className="home__link">
+              Next question
+            </Link>
+          }
+          blue="black"
+        />
       </div>
     )
   );
