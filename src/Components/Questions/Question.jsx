@@ -1,7 +1,6 @@
-import React from 'react';
 import { useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { QuestionConsumer, QuestionContext } from '../../Context';
+import { QuestionContext } from '../../Context';
 import Button from '../Button/Button';
 import './Questions.css';
 
@@ -10,7 +9,7 @@ function Question() {
   const validParam = parseInt(question, 10);
   const questions = useContext(QuestionContext);
   // eslint-disable-next-line
-  console.log(typeof validParam);
+  console.log(questions.length);
 
   return (
     <div>
@@ -36,7 +35,12 @@ function Question() {
           </div>
           <Button
             text={
-              <Link to={`/question/${validParam + 1}`} className="home__link">
+              <Link
+                to={
+                  validParam >= 10 ? '/answers' : `/question/${validParam + 1}`
+                }
+                className="home__link"
+              >
                 Next question
               </Link>
             }

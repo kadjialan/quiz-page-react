@@ -7,18 +7,17 @@ import { QuestionProvider } from '../Context';
 import useFetch from '../Hooks/useFetch';
 
 function Pages() {
-  
   const [questions] = useFetch();
 
   return (
     <div>
       <BrowserRouter>
-      <QuestionProvider value={questions}>
-        <Routes>
-          <Route index path="/" element={<Home />} />
-          <Route path="question/:question" element={<Question />} />
-          <Route path="/answers" element={<Answer />} />
-        </Routes>
+        <QuestionProvider value={questions}>
+          <Routes>
+            <Route index path="/" element={<Home />} />
+            <Route path="question/:question" element={<Question />} />
+            <Route path="/answers" element={<Answer />} />
+          </Routes>
         </QuestionProvider>
       </BrowserRouter>
     </div>
