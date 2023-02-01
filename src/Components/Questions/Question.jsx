@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import './Questions.css';
 
-function Question({ numb, path }) {
+function Question({ numb }) {
+  const params = useParams();
   const [questions, setQuestions] = useState([]);
+  console.log(params);
   const fetchQuestions = async () => {
     const response = await fetch(
       'https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean'
@@ -28,16 +31,20 @@ function Question({ numb, path }) {
             <b>Category:</b> {questions[numb - 1].category}
           </p>
           <h3 key={questions.question}>
-            {questions[numb - 1].question.replace(/[^a-zA-Z ]/g, '')}
+            {questions[numb - 1].question.replace(/[^a-zA-Z ]/g, '')} ?
           </h3>
           <div className="questions__btn">
-            <Button text="True" />
-            <Button text="False" blue="red" />
+            <button className="questions__btn__true" type="button">
+              True
+            </button>
+            <button className="questions__btn__false" type="button">
+              false
+            </button>
           </div>
         </div>
         <Button
           text={
-            <Link to={path} className="home__link">
+            <Link to="/:question/" className="home__link">
               Next question
             </Link>
           }
@@ -49,3 +56,7 @@ function Question({ numb, path }) {
 }
 
 export default Question;
+
+Question.propTypes = {
+  numb: PropTypes.string.isRequired,
+};

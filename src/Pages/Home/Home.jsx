@@ -12,7 +12,7 @@ function Home() {
       <img src={QuizPic} alt="quiz" className="home__picture" />
       <Button
         text={
-          <Link to="/question1" className="home__link">
+          <Link to="question/:question" className="home__link">
             Get Started
           </Link>
         }
