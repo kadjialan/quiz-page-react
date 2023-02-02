@@ -39,6 +39,7 @@ button {
   color: white;
 }
 
+
 .questions__btn__false {
   background-color: #f60e0e;
 }
@@ -48,5 +49,4 @@ button {
   padding: 10px;
   background-color: #fff;
   color: black;
-
 }

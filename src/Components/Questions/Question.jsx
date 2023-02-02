@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { QuestionContext } from '../../Context';
 import './Questions.css';
@@ -6,20 +6,20 @@ import './Questions.css';
 function Question() {
   const { question } = useParams();
   const validParam = parseInt(question, 10);
-  const questions = useContext(QuestionContext);
-  const [answer, setAnswer] = useState(1);
+  const { questions, answer, setAnswer } = useContext(QuestionContext);
+
   const navigate = useNavigate();
   const getAnswer = (e) => {
-    const value = e.target.value;
-    if (value === questions[validParam - 1].correct_answer) {
+    const val = e.target.value;
+    if (val === questions[validParam - 1].correct_answer) {
       setAnswer(answer + 1);
+      // eslint-disable-next-line
       console.log(answer);
     } else {
-      console.log(value);
+      // eslint-disable-next-line
+      console.log('wrong');
     }
-    setTimeout(() => {
-      navigate(validParam >= 10 ? '/answers' : `/question/${validParam + 1}`);
-    }, 2000);
+    navigate(validParam >= 10 ? '/answers' : `/question/${validParam + 1}`);
   };
 
   return (
@@ -41,7 +41,7 @@ function Question() {
                 className="questions__btn__true"
                 type="button"
                 value="True"
-                onClick={(e) => getAnswer(e, 'value')}
+                onClick={(e) => getAnswer(e, 'val')}
               >
                 True
               </button>
@@ -49,7 +49,7 @@ function Question() {
                 className="questions__btn__false"
                 type="button"
                 value="False"
-                onClick={(e) => getAnswer(e, 'value')}
+                onClick={(e) => getAnswer(e, 'val')}
               >
                 false
               </button>
