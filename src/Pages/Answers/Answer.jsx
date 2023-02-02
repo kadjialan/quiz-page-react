@@ -4,7 +4,7 @@ import { QuestionContext } from '../../Context';
 import './Answer.css';
 
 export default function Answer() {
-  const correction = useContext(QuestionContext);
+  const { questions, answer } = useContext(QuestionContext);
   const navigate = useNavigate();
   function reset() {
     navigate('/');
@@ -15,8 +15,9 @@ export default function Answer() {
       <div className="questions">
         <div className="correction">
           <h1>Correction</h1>
+          <h3 className="final-score">score: {answer - 1}/10</h3>
           <ol>
-            {correction.map((user) => (
+            {questions.map((user) => (
               <li key={user.question}>
                 <p>{user.question.replace(/[^a-zA-Z ]/g, '')} </p>
                 <p className="correction__answer">{user.correct_answer}</p>

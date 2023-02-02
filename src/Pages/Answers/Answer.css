@@ -17,3 +17,11 @@
   margin: 20px;
   background-color: black;
 }
+
+.final-score {
+  background-color: blue;
+  padding: 20px;
+  width: 150px;
+  margin: auto;
+  color: white;
+}

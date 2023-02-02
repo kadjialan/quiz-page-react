@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { QuestionContext } from '../../Context';
 import './Questions.css';
@@ -6,8 +6,8 @@ import './Questions.css';
 function Question() {
   const { question } = useParams();
   const validParam = parseInt(question, 10);
-  const questions = useContext(QuestionContext);
-  const [answer, setAnswer] = useState(1);
+  const { questions, answer, setAnswer } = useContext(QuestionContext);
+
   const navigate = useNavigate();
   const getAnswer = (e) => {
     const val = e.target.value;
