@@ -26,7 +26,7 @@ export default function Answer() {
           </ol>
         </div>
         <button type="button" className="restart" onClick={() => reset()}>
-          Restart game
+          Continue
         </button>
       </div>
     </div>
