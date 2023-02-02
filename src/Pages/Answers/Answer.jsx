@@ -7,14 +7,17 @@ export default function Answer() {
   return (
     <div>
       <div className="questions">
-        <h1>Correction</h1>
-        <ol>
-          {correction.map((user) => (
-            <li>
-              {user.question.replace(/[^a-zA-Z ]/g, '')} ={user.correct_answer}
-            </li>
-          ))}
-        </ol>
+        <div className="correction">
+          <h1>Correction</h1>
+          <ol>
+            {correction.map((user) => (
+              <li key={user.question}>
+                <p>{user.question.replace(/[^a-zA-Z ]/g, '')} </p>
+                <p className="correction__answer">{user.correct_answer}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
     </div>
   );
