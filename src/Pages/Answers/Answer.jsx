@@ -1,9 +1,15 @@
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { QuestionContext } from '../../Context';
 import './Answer.css';
 
 export default function Answer() {
   const correction = useContext(QuestionContext);
+  const navigate = useNavigate();
+  function reset() {
+    navigate('/');
+    window.location.reload(true);
+  }
   return (
     <div>
       <div className="questions">
@@ -18,6 +24,9 @@ export default function Answer() {
             ))}
           </ol>
         </div>
+        <button type="button" className="restart" onClick={() => reset()}>
+          Restart game
+        </button>
       </div>
     </div>
   );

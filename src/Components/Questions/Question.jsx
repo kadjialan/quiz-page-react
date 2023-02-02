@@ -10,16 +10,18 @@ function Question() {
   const [answer, setAnswer] = useState(1);
   const navigate = useNavigate();
   const getAnswer = (e) => {
-    const value = e.target.value;
-    if (value === questions[validParam - 1].correct_answer) {
+    const val = e.target.value;
+    if (val === questions[validParam - 1].correct_answer) {
       setAnswer(answer + 1);
+      // eslint-disable-next-line
       console.log(answer);
     } else {
-      console.log(value);
+      // eslint-disable-next-line
+      console.log('wrong');
     }
     setTimeout(() => {
       navigate(validParam >= 10 ? '/answers' : `/question/${validParam + 1}`);
-    }, 2000);
+    }, 1000);
   };
 
   return (
@@ -41,7 +43,7 @@ function Question() {
                 className="questions__btn__true"
                 type="button"
                 value="True"
-                onClick={(e) => getAnswer(e, 'value')}
+                onClick={(e) => getAnswer(e, 'val')}
               >
                 True
               </button>
@@ -49,7 +51,7 @@ function Question() {
                 className="questions__btn__false"
                 type="button"
                 value="False"
-                onClick={(e) => getAnswer(e, 'value')}
+                onClick={(e) => getAnswer(e, 'val')}
               >
                 false
               </button>
