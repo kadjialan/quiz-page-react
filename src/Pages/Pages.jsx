@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Answer from './Answers/Answer';
 import Home from './Home/Home';
@@ -8,11 +8,12 @@ import useFetch from '../Hooks/useFetch';
 
 function Pages() {
   const [questions] = useFetch();
+  const [answer, setAnswer] = useState(1);
 
   return (
     <div>
       <BrowserRouter>
-        <QuestionProvider value={questions}>
+        <QuestionProvider value={{ questions, answer, setAnswer }}>
           <Routes>
             <Route index path="/" element={<Home />} />
             <Route path="question/:question" element={<Question />} />
