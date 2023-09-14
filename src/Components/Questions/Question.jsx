@@ -17,7 +17,7 @@ function Question() {
       console.log(answer);
     } else {
       // eslint-disable-next-line
-      console.log('wrong');
+      console.log(val);
     }
     navigate(validParam >= 10 ? '/answers' : `/question/${validParam + 1}`);
   };
