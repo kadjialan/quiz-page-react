@@ -23,7 +23,7 @@ function Question() {
   };
 
   return (
-    <div>
+    <div className="questins_holder">
       {questions.length > 0 && (
         <div className="questions">
           <h2>Question{validParam}</h2>

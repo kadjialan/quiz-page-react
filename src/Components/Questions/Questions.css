@@ -1,3 +1,9 @@
+.questins_holder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .questions {
   display: flex;
   flex-direction: column;
@@ -7,11 +13,13 @@
   background-color: #9e9e9e;
   height: 99vh;
   color: white;
+  max-width: 700px;
+  width: 100%;
 }
 
 .questions__numbers {
   min-height: 150px;
-  width: 70%;
+  width: 77%;
   margin-inline: auto;
   background-color: #fff;
   border-radius: 8px;
